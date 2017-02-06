@@ -37,15 +37,35 @@
                 </ul>
             </div>
             <div class="nav-r">
-                <ul>
-                    <li class="login">
+                <ul class="nav-r-wrapper">
+                    <li class="login nav-r-m">
                         <a href="#"><span>登陆</span></a>
                     </li>
-                    <li class="register">
+                    <li class="register nav-r-m">
                         <a href="#"><span>注册</span></a>
                     </li>
-                    <li class="tougao">
+                    <li class="tougao nav-r-m">
                         <a href="#"><span style="color: white;">投稿</span></a>
+                        <ul class="tougao-menu">
+                            <li>
+                                <a  href="##">
+                                    <i class="tougao-v"></i>
+                                    <em>投稿视频</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="##">
+                                    <i class="tougao-m"></i>
+                                    <em>投稿管理</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="##">
+                                    <i class="tougao-center"></i>
+                                    <em>个人中心</em>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -728,7 +748,7 @@
                          <span>排行榜</span>
                      </a>
                     
-                    <form action="" id="search-form">
+                    <form autocomplete="off" action="" id="search-form">
                             <input type="text" name="search-keyword" id="search-keyword">
                             <button id="search-submit" type="submit"></button>
                     </form>

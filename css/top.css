@@ -93,11 +93,11 @@ body{
     transition: .15s;
 }
 
-.nav-r ul li:hover{
+.nav-r-m:hover{
     background-color: rgba(255,255,255,0.3);
     transition: .15s;
 }
-.nav-r ul li:nth-child(3):hover{
+.tougao:hover{
     background-image: url("../image/b-post-hover.png");
 }
 
@@ -144,6 +144,10 @@ body{
     position: absolute;
     top: 13px;
 }
+.nav-r-wrapper{
+    height: 48px;
+    position: relative;
+}
 .login,.register{
     width: 26px;
     height: 42px;
@@ -158,6 +162,70 @@ body{
     float: left;
     padding-left: 15px; 
 }
+.tougao:hover>.tougao-menu{
+    visibility: visible;
+    opacity: 1;
+}
+.tougao-menu{
+    position: absolute;
+    display: block;
+    visibility: hidden;
+    top: 42px;
+    right: 0;
+    z-index: 15;
+    width: 216px;
+    border: 0;
+    transition: .2s;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.16) 0 2px 4px;
+    opacity: 0;
+    overflow: hidden;
+}
+.tougao-menu li{
+    cursor: pointer;
+    text-align: center;
+    width: 72px;
+    height: 64px;
+    transition: .1s;
+    float: left;
+}
+.nav-r ul ul .tougao-v{
+    background-position: -471px -919px;
+}
+.nav-r ul ul .tougao-m{
+    background-position: -471px -982px;
+}
+.nav-r ul ul .tougao-center{
+    background-position: -471px -1753px;
+}
+.tougao-menu li:nth-child(1) a  {
+    left:12px;
+}
+.tougao-menu li:nth-child(2) a  {
+    left:84px;
+}
+.tougao-menu li:nth-child(3) a  {
+    left:156px;
+}
+.tougao-menu li:hover{
+    background-color: #e5e9ef;
+}
+.tougao-menu li a i{
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 8px;
+    background: url(../image/icons.png) no-repeat;
+}
+.tougao-menu li a em{
+    color: #f25d8e;
+    line-height: 1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+}
+
 .header-container{
     height: 100%;
     width: 1160px;
@@ -432,6 +500,7 @@ body{
     display: block;
 
 
+
 }
 #search-keyword{
     padding: 0 12px;
@@ -454,7 +523,9 @@ body{
     margin: 0;
     padding: 0;
     border: 0;
+    border-radius: 0 4px 4px 0px;
 }
+
 .l-rank{
     width: 68px;
     left: 2px;
@@ -469,6 +540,12 @@ body{
     background: url(../image/icons.png) -659px -655px no-repeat;
     cursor: pointer;
 }
-#search-keyword:hover,#search-submit :hover #search-form{
+.l-rank:hover{
     background-color: #fff;
+}
+#search-form :hover {
+    background-color: #fff;
+}
+#search-submit:hover {
+    background-position: -718px -720px;
 }
