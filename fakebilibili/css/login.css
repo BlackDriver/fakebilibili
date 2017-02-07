@@ -1,3 +1,9 @@
+body{
+    min-height: 900px;
+}
+.top-nav{
+    width: 980px;
+}
 .msg-container{
     position: absolute;
     top: 0;
