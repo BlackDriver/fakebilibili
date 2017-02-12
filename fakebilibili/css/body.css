@@ -3,7 +3,7 @@
     margin: 0 auto;
     top:70px;
     width: 1160px;
-    height: 7091px;
+
 }
 .top-container-wrapper{
     position: relative;
@@ -568,4 +568,167 @@
 }
 .mini-msg .mini-msg-on {
     opacity: 1;
+}
+.calendar{
+
+    width: 880px;
+    height: 406px;
+}
+.calendar-head{
+    width: 100%;
+    height: 37px;
+    border-bottom: 1px solid #e5e9ef;
+
+}
+.clearfix{
+    width: 750px;
+    height: 36px;
+
+}
+.clearfix li{
+    float: left;
+    width: 60px;
+    text-align: center;
+    height: 36px;
+    line-height: 35px;
+    font-size: 18px;
+    border: 0;
+    position: relative;
+    border-radius: 4px;
+}
+.bangumi{
+    width: 54px;
+    height: 54px;
+    background: url(../image/bangumi-weekday.png) no-repeat;
+    cursor: pointer;
+    position: absolute;
+    top: -22px;
+    left: 10px;
+    opacity: 0;
+}
+.delta{
+    background: url(../image/icons.png) no-repeat;
+    width: 18px;
+    height: 8px;
+    background-position: -853px -489px;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    margin-left: -9px;
+    opacity: 0;
+}
+.bangumi-on {
+    background-color: #00a1d6;
+    padding-left: 60px;
+    color: #fff;
+    font-weight: bold;
+}
+.bangumi-on .bangumi{
+    opacity: 1;
+}
+.bangumi-on .delta{
+    opacity: 1;
+}
+.clearfix li:nth-child(1) .bangumi{
+    background-position: -933px -38px;
+}
+.clearfix li:nth-child(2) .bangumi{
+    background-position: -36px -38px;
+}
+.clearfix li:nth-child(3) .bangumi{
+    background-position: -165px -38px;
+}
+.clearfix li:nth-child(4) .bangumi{
+    background-position: -293px -38px;
+}
+.clearfix li:nth-child(5) .bangumi{
+    background-position: -420px -38px;
+}
+.clearfix li:nth-child(6) .bangumi{
+    background-position: -549px -38px;
+}
+.clearfix li:nth-child(7) .bangumi{
+    background-position: -677px -38px;
+}
+.clearfix li:nth-child(8) .bangumi{
+    background-position: -805px -38px;
+}
+.calendar-body{
+    margin-right: 0;
+    padding: 42px 0 40px 0;
+    font-size: 12px;
+}
+.cr-1,.cr-2{
+    width: 25%;
+    height: 72px;
+    float: left;
+}
+.cr-2{
+    padding-top: 36px;
+}
+.c-item{
+    width: 180px;
+    height: 100%;
+}
+.c-item-img{
+    border-radius: 4px;
+    margin-right: 12px;
+    overflow: hidden;
+    float: left;
+    height: 72px;
+}
+.c-item-r{
+    float: right;
+    width: 96px;
+    height: 72px;
+    position: relative;
+}
+.c-item-r a:hover{
+    color: #00a1d6;
+}
+.c-item-r p{
+    position: absolute;
+    bottom: 0;
+}
+.c-item-r p span{
+    background: #b8c0cc;
+    border-radius: 9px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    padding: 0 4px;
+    height: 18px;
+    margin-left: 5px;
+    min-width: 28px;
+    color: #fff;
+}
+.c-item-img img:hover{
+    transform: scale(1.2);
+
+}
+.c-item-img img{
+    transition: .2s all;
+}
+.mini-lunbo-container li{
+    height: 248px;
+    width: 260px;
+}
+.cal-mini-btn{
+    height: 24px;
+    padding: 0 99px;
+    background: rgba(0,0,0,0.74);
+    width: 62px;
+}
+.cal-mini-btn li{
+    height: 24px;
+    display: inline-block;
+    width: 30px;  
+    height: 6px;
+    background-color: #f25d8e;
+    border-radius: 5px;
+    transition: .2s;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 16px;
 }
