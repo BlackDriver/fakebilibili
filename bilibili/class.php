@@ -44,9 +44,9 @@ class loginController
 
     public function logout()
     {
-        setcookie(session_name(), '', time() - $this->lifetime, '', '.www.meituan233.trade');
+        setcookie(session_name(), '', time() + $this->lifetime, '', '.www.meituan233.trade');
         session_destroy();
-        return header('Location:login.php');
+        return header('Location:login.html');
     }
 }
 
