@@ -6,15 +6,29 @@
     <link rel="stylesheet" type="text/css" href="css/top.css">
     <link rel="stylesheet" type="text/css" href="css/body.css">
     <link rel="stylesheet" type="text/css" href="css/bottom.css">
-
 </head>
 <body>
+
+    <?php
+    require_once 'connect.php';
+    require_once 'class.php';
+    session_start();
+
+    if (isset($_POST['login_submit']) && $_POST['login_submit'] == 'submit') {
+        $login->login($_POST['username'], $_POST['password']);
+    }
+
+    if (!isset($_SESSION['username'])) {
+        header('login.php');
+    }
+
+    ?>
+
     <div class="top">
         <div class="blur-container">
             <div class="top-blur tops"></div>
-            <div class="top-bg tops"></div>     
+            <div class="top-bg tops"></div>
         </div>
-
         <div class="top-nav ">
             <div class="nav-l">
                 <ul>
@@ -294,7 +308,6 @@
                                         </b>
                                     </a>
                                 </li>
-                
                         </ul>
                     </li>
                     <li class="n-li">
@@ -345,7 +358,6 @@
                                         </b>
                                     </a>
                                 </li>
-                     
                         </ul>
                     </li>
                     <li class="n-li">
@@ -520,7 +532,6 @@
                                         </b>
                                     </a>
                                 </li>
-             
                         </ul>
                     </li>
                     <li class="n-li">
@@ -563,7 +574,6 @@
                                         </b>
                                     </a>
                                 </li>
-             
                         </ul>
                     </li>
                     <li class="n-li">
@@ -633,7 +643,6 @@
                                         </b>
                                     </a>
                                 </li>
-                                
                         </ul>
                     </li>
                     <li class="n-r">
@@ -730,7 +739,6 @@
                                         </b>
                                     </a>
                                 </li>
-                                
                         </ul>
                     </li>
 
@@ -749,18 +757,15 @@
                      <a class="l-rank">
                          <span>排行榜</span>
                      </a>
-                    
-                    <form autocomplete="off" action="" id="search-form">
+                    <form autocomplete="off" action="search.php" id="search-form">
                             <input type="text" name="search-keyword" id="search-keyword">
-                            <button id="search-submit" type="submit"></button>
+                            <button id="search-submit" type="submit" name="search"></button>
                     </form>
                 </div>
-                
             </div>
         </div>
-        
     </div>
-    <div class="index-container">    
+    <div class="index-container">
         <div class="top-container-wrapper">
             <div class="lunbo-a">
                 <ul class="pics-a">
@@ -776,7 +781,7 @@
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li></li>      
+                        <li></li>
                     </ul>
                     <div class="title-a">
                         <span class="title-on">鬼畜华语好声音再度来袭~锵锵锵~</span>
@@ -895,9 +900,7 @@
                     </li>
 
                 </ul>
-            </div>
-        
-        </div>
+            </div>        </div>
         <div class="container-row">
             <div class="row-l">
                 <div class="row-head">
@@ -967,7 +970,6 @@
                         <i></i>
                     </div>
                     <div class="row-head-r newmove"><span></span>当前共有<b>9999</b>条新动态</div>
-                    
                 </div>
                 <div class="row-body">
                     <ul class="tuiguang-list live-list">
@@ -1139,7 +1141,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1152,7 +1154,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1165,7 +1167,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1178,7 +1180,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1191,7 +1193,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1204,7 +1206,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1258,7 +1260,6 @@
                         <i></i>
                     </div>
                     <div class="row-head-r newmove"><span></span>当前共有<b>9999</b>条新动态</div>
-                    
                 </div>
                 <div class="row-body">
                     <ul class="tuiguang-list">
@@ -1430,7 +1431,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1443,7 +1444,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1456,7 +1457,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1469,7 +1470,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1482,7 +1483,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1495,7 +1496,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1510,12 +1511,11 @@
                             </div>
                         </li>
                         <li>
-        
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>   
+        </div>
         <div class="container-row">
             <div class="calendar">
                 <div class="calendar-head">
@@ -1684,7 +1684,6 @@
                         <i></i>
                     </div>
                     <div class="row-head-r newmove"><span></span>当前共有<b>9999</b>条新动态</div>
-                    
                 </div>
                 <div class="row-body">
                     <ul class="tuiguang-list">
@@ -1856,7 +1855,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1869,7 +1868,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1882,7 +1881,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1895,7 +1894,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1908,7 +1907,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1921,7 +1920,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -1936,7 +1935,6 @@
                             </div>
                         </li>
                         <li>
-        
                         </li>
                     </ul>
                 </div>
@@ -1955,7 +1953,6 @@
                         <i></i>
                     </div>
                     <div class="row-head-r newmove"><span></span>当前共有<b>9999</b>条新动态</div>
-                    
                 </div>
                 <div class="row-body">
                     <ul class="tuiguang-list">
@@ -2127,7 +2124,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2140,7 +2137,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2153,7 +2150,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2166,7 +2163,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2179,7 +2176,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2192,7 +2189,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2207,7 +2204,6 @@
                             </div>
                         </li>
                         <li>
-        
                         </li>
                     </ul>
                 </div>
@@ -2226,7 +2222,6 @@
                         <i></i>
                     </div>
                     <div class="row-head-r newmove"><span></span>当前共有<b>9999</b>条新动态</div>
-                    
                 </div>
                 <div class="row-body">
                     <ul class="tuiguang-list">
@@ -2398,7 +2393,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2411,7 +2406,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2424,7 +2419,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2437,7 +2432,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2450,7 +2445,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2463,7 +2458,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2478,7 +2473,6 @@
                             </div>
                         </li>
                         <li>
-        
                         </li>
                     </ul>
                 </div>
@@ -2497,7 +2491,6 @@
                         <i></i>
                     </div>
                     <div class="row-head-r newmove"><span></span>当前共有<b>9999</b>条新动态</div>
-                    
                 </div>
                 <div class="row-body">
                     <ul class="tuiguang-list">
@@ -2669,7 +2662,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2682,7 +2675,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2695,7 +2688,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2708,7 +2701,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2721,7 +2714,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2734,7 +2727,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2747,9 +2740,6 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                        </li>
-                        <li>
-        
                         </li>
                     </ul>
                 </div>
@@ -2768,7 +2758,6 @@
                         <i></i>
                     </div>
                     <div class="row-head-r newmove"><span></span>当前共有<b>9999</b>条新动态</div>
-                    
                 </div>
                 <div class="row-body">
                     <ul class="tuiguang-list">
@@ -2940,7 +2929,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2953,7 +2942,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2966,7 +2955,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2979,7 +2968,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -2992,7 +2981,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -3005,7 +2994,7 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                            <div class="live-rank">  
+                            <div class="live-rank">
                                 <div class="live-pic"></div>
                                 <div class="live-i-r">
                                     <p>
@@ -3018,9 +3007,6 @@
                                     <div class="live-msg">18岁以下的孕妇勿进！恐怖之夜！</div>
                                 </div>
                             </div>
-                        </li>
-                        <li>
-        
                         </li>
                     </ul>
                 </div>
@@ -3039,7 +3025,6 @@
                         <i></i>
                     </div>
                     <div class="row-head-r newmove"><span></span>当前共有<b>9999</b>条新动态</div>
-                    
                 </div>
                 <div class="row-body">
                     <ul class="tuiguang-list">

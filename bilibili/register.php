@@ -1,11 +1,7 @@
 <?php
 
-header("Content-Type: text/html; charset=utf-8");
-
-$mysqli = new mysqli('localhost', 'root', '', 'mysql');
-if ($mysqli->connect_error) {
-    die('Connect Error (' . $mysqli->connect_errno . ') '. $mysqli->connect_error);
-}
+require_once 'connect.php';
+session_start();
 
 $username = addslashes($_POST['username']);
 $password = addslashes($_POST['password']);
