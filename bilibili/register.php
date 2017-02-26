@@ -23,6 +23,7 @@ if ($username && $password) {
         if ($result) {
             echo "祝贺你，注册成功!";
             echo "<a href=login.html>登入</a>";
+            header("refresh:2;url=login.html");
             exit;
         } else {
             echo '抱歉！添加数据失败：'. $mysqli -> error.'<br />';

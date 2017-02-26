@@ -13,9 +13,10 @@
     require_once 'connect.php';
     require_once 'class.php';
     session_start();
-
     if (isset($_POST['login_submit']) && $_POST['login_submit'] == 'submit') {
         $login->login($_POST['username'], $_POST['password']);
+    } else {
+        header('location:login.html');
     }
 
 ?>
@@ -49,7 +50,7 @@
                 </ul>
             </div>
             <div class="nav-r">
-                <ul class="nav-r-wrapper">
+                <ul class="nav-r-wrapper beforelogin" style="display: block;">
                     <li class="login nav-r-m">
                         <a href="login.html"><span>登陆</span></a>
                     </li>
@@ -80,6 +81,83 @@
                         </ul>
                     </li>
                 </ul>
+                <!--隐藏的登陆后显示界面-->            
+                <ul class="nav-r-wrapper afterlogin" style="display: none;">
+                    <li class="i-user">
+                        <img src="./image/tianyi.jpg" class="i-head"></img>
+                        <div class="i-user-menu">
+                            <div class="menu-info">
+                                <div class="info-uname">
+                                    <!--此处存放用户名-->
+                                    <b>江泽民</b>
+                                </div>
+                                <i class="coin">999</i>
+                                <i class="i-email"></i>
+                                <i class="i-phone"></i>
+                            </div>
+                            <div class="menu-lv">等级：续命师 99998/99999s</div>
+                            <div class="menu-member-wrp">
+                                <ul class="menu-member">
+                                    <li>
+                                        <i></i>
+                                        个人中心
+                                    </li>
+                                    <li>
+                                        <i></i>
+                                        投稿管理
+                                    </li>
+                                    <li>
+                                        <i></i>
+                                        B币钱包
+                                    </li>
+                                    <li>
+                                        <i></i>
+                                        直播中心
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="member-bottom">
+                                <a class="logout">退出</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-r-log nav-r-m">
+                        <a href="#"><span>消息</span></a>
+                    </li>
+                    <li class="nav-r-log nav-r-m">
+                        <a href="##"><span>动态</span></a>
+                    </li>
+                    <li style="width: 60px;" class="nav-r-log nav-r-m">
+                        <a href="##"><span>收藏夹</span></a>
+                    </li>
+                    <li class="nav-r-log nav-r-m">
+                        <a href="##"><span>历史</span></a>
+                    </li>
+                    <li class="tougao ">
+                        <a href="#"><span style="color: white;">投稿</span></a>
+                        <ul class="tougao-menu">
+                            <li>
+                                <a  href="##">
+                                    <i class="tougao-v"></i>
+                                    <em>投稿视频</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="##">
+                                    <i class="tougao-m"></i>
+                                    <em>投稿管理</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="##">
+                                    <i class="tougao-center"></i>
+                                    <em>个人中心</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--Ah♂-->
             </div>
         </div>
     </div>
@@ -759,15 +837,18 @@
                      <a class="l-rank">
                          <span>排行榜</span>
                      </a>
-                    <form autocomplete="off" action="searchout.php" id="search-form" method="post">
+                    
+                    <form autocomplete="off" action="" id="search-form">
                             <input type="text" name="search-keyword" id="search-keyword">
                             <button id="search-submit" type="submit"></button>
                     </form>
                 </div>
+                
             </div>
         </div>
+        
     </div>
-    <div class="index-container">
+    <div class="index-container">    
         <div class="top-container-wrapper">
             <div class="lunbo-a">
                 <ul class="pics-a">
@@ -4775,6 +4856,11 @@
         </div>
 </body>
 </html>
+
 <script type="text/javascript" src="js/index-a.js"></script>
 <script type="text/javascript" src="js/index-test.js"></script>
 <script type="text/javascript" src="js/mini.js"></script>
+
+<?php
+echo '<script type="text/javascript" src="js/loginlogout.js"></script>';
+?>

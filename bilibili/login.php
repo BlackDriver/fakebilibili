@@ -14,10 +14,13 @@
             $res = mysqli_query($mysqli,$sql);
             $rows= mysqli_num_rows($res);
             if($rows) {
-                header("location:index.php");
+                $_SESSION['username']=$username;
+                echo "登录成功,3秒后返回首页</br>";
+                echo "<a href='index.php'>如果浏览器没有反应请点击此链接</a>";
+                header("refresh:3;url=index.php");
                 exit;
             } else {
-                echo "登入失败，请验证！";
+                echo "登录失败，请验证！";
             }
             mysqli_free_result($res);
             mysqli_close($mysqli);

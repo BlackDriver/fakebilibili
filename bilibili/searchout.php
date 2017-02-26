@@ -120,37 +120,40 @@
         <ul class="searchout-container">
             <!--示例用li元素，整个元素作为内容-->
             <?php
-
-                $mysqli = new mysqli('localhost', 'root', '', 'mysql');
+                $mysqli = new mysqli('localhost', 'root', '1234', 'mysql');
                 if ($mysqli->connect_error) {
                     die('Connect Error (' . $mysqli->connect_errno . ') '. $mysqli->connect_error);
                 }
 
-                $keyword = addslashes($_POST['search-keyword']);
-                if(empty($keyword))
+                @$keyword = addslashes($_POST['search-keyword']);
+                if (empty($keyword))
                 {
-                    $keyword='小';
                     echo '<script>alert("请输入内容进行搜索");</script>';
                 }
                 if (!empty($keyword)) {
-                    $sql = "SELECT * FROM videos WHERE title LIKE '%{$keyword}%' ORDER BY video_id";
+                    $sql = "SELECT * FROM videos WHERE title LIKE '%{$keyword}%' ORDER BY video_id LIMIT -15";
                     $res = mysqli_query($mysqli,$sql);
+                    if (!mysqli_query($mysqli,"SET @a=':error'")) {
+                        printf("错误信息:%s\n",mysqli_error($mysqli));
+                    }
                     $row = mysqli_fetch_row($res);
-                    while ($row) {
-                        
+                    if ($row==0) {
+                        echo "找不到您查询的信息";
+                    } else {
+                        while ($row) {
                     ?>
                 <li class="videoout">
                     <div class="video-img">
                     <?php
-                        echo '<img src="./image/searchout/';
-                        echo ($row[video_id]+1).'jpg">';
-                        echo '</div>';
+                        echo '<img src="./image/searchout/'.$row[1].'.jpg">';
                     ?>
+                    </div>
                     <div class="info">
                     <?php
-                        // echo '<a href="';
-                        // echo '"'..'</a>';
+                        echo '<a href="##">';
                     ?>
+                    title
+                    </a>
                     </div>
                     <div class="tags">
                         <span class="so-icons watch-num"><i class="icon-playtime"></i>1111</span>
@@ -160,7 +163,10 @@
                 </li>
                    <?php
                     }
+                    mysqli_free_result($res);
+                    mysqli_close($mysqli);
                 }
+            }
                 ?>
             <!--示例结束-->
         </ul>

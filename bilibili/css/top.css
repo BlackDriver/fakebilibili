@@ -110,7 +110,7 @@ body{
     padding:  0 12px;
 }
 .nav-l ul a{
-    font-size: 14px;
+    font-size: 12px;
     color: #fff;
     font-family: 微软雅黑;
     
@@ -138,7 +138,7 @@ body{
     float: right;
 }
 .nav-r ul a{
-    font-size: 14px;
+    font-size: 12px;
     color: #fff;
     font-family: 微软雅黑;
     position: absolute;
@@ -276,7 +276,7 @@ body{
     position: relative;
     margin: 0 auto;
     padding: 6px 0;
-    z-index: 100;
+    z-index: 1;
 }
 .nav-menu{
     height: 50px;
@@ -548,4 +548,172 @@ body{
 }
 #search-submit:hover {
     background-position: -718px -720px;
+}
+.nav-r-log{
+    float: left;
+    height: 42px;
+    width: 48px;
+    position: relative;
+    font-size: 5px;
+}
+.nav-r-log a{
+    left: 10px;
+}
+.nav-r-log a:nth-child(3){
+    left: 16px;
+}
+
+.i-user{
+    width: 36px;
+    height: 42px;
+    margin: 0 9px;
+    float: left;
+    position: relative;
+    z-index: 101;
+}
+.i-head{
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    border-color: #fff;
+    border-radius: 18px;
+    display: block;
+    height: 36px;
+    width: 36px;
+    margin: 3px 0;
+    transition: .3s;
+    transition-delay: .3s;
+}
+.i-user:hover>.i-head{
+    width: 64px;
+    height: 64px;
+    left: -16px;
+    top: 15px;
+    margin: 0;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition-delay: .3s;
+
+}
+.i-user-menu{
+    left: 50%;
+    margin-left: -130px;
+    margin-top: 42px;
+    width: 260px;
+    height: 0px;
+    padding-top: 0px;
+    background:#fff;
+    box-shadow: rgba(0,0,0,0.16) 0 2px 4px;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+    z-index: 1;
+    transition: .5s ease;
+    transition-delay: .3s;
+    overflow: hidden;
+}
+.i-user:hover>.i-user-menu{
+    padding-top: 50px;
+    height: 224px;
+}
+.menu-info{
+    margin-bottom: 10px;
+    padding: 0 20px;
+}
+.info-uname{
+    line-height: 16px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+.coin{
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    background: url(../image/icons.png) no-repeat -343px -471px;
+    padding-left: 20px;
+    font-style: normal;
+    float: left;
+}
+.i-email{
+    background: url(../image/icons.png) no-repeat -343px -534px;
+    width: 18px;
+    height: 18px;
+    display: block;
+    float: right;
+    margin-right: 5px;
+}
+.i-phone{
+    background: url(../image/icons.png) no-repeat -343px -599px;
+    width: 18px;
+    height: 18px;
+    display: block;
+    float: right;
+    margin-right: 5px;
+}
+.menu-lv{
+    padding: 0 0 0 20px;
+    position: relative;
+    margin-top: 42px;
+    margin-bottom: 30px;
+    height: 20px;
+}
+.menu-member-wrp{
+    margin: 0 20px;
+    border-top: 1px solid #e5e9ef;
+}
+.menu-member{
+    
+    padding: 10px 0;
+    margin-right: -20px;
+    vertical-align: top;
+    
+}
+.menu-member li{
+    display: inline-block;
+    width: 90px;
+    height: 16px;
+    line-height: 16px;
+    padding: 5px 0 5px 0;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.menu-member li:hover{
+    color: #00a1d6;
+}
+.menu-member li i{
+    background: url(../image/icons.png) no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+.menu-member li:nth-child(1) i{
+    background-position: -472px -407px;
+}
+.menu-member li:nth-child(2) i{
+    background-position: -536px -1046px;
+}
+.menu-member li:nth-child(3) i{
+    background-position: -472px -472px;
+}
+.menu-member li:nth-child(4) i{
+    background-position: -473px -855px;
+}
+.member-bottom{
+    height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    background-color: #f4f5f7;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+}
+.logout{
+    position: absolute;
+    right: 30px !important;
+    top: 0px !important;
+    color: #222 !important;
+    cursor: pointer;
+}
+.logout:hover{
+    color: #00a1d6 !important;
 }
