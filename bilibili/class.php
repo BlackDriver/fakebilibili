@@ -14,8 +14,8 @@ class loginController
         if ($this->isLogin())
             return header('Location:index.php');
 
-        $username = addslashes($_POST['username']);
-        $password = addslashes($_POST['password']);
+        $username = trim($_POST['username']);
+        $password = trim($_POST['password']);
         $hash=md5($password);
         $sql = "SELECT * FROM users WHERE username='$username' and password='$hash'";
         $res = mysqli_query($mysqli,$sql);

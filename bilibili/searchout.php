@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>搜索结果</title>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="css/top.css">
     <link rel="stylesheet" type="text/css" href="css/bottom.css">
     <link rel="stylesheet" type="text/css" href="css/searchout.css">
-
+    
 </head>
 <body>
     <div class="top">
@@ -78,7 +78,7 @@
             <a href="##"></a>
             <div class="search-block">
                 <!-- 搜索框-->
-                <form action="searchout.php" style="height: 100%" method="post">
+                <form action="searchout.php" style="height: 100%" method="get">
                     <input type="text" name="search-keyword" id="search-keyword">
                     <input type="submit" name="search-submit" id="search-submit2" value="搜索">
                 </form>
@@ -125,19 +125,21 @@
                     die('Connect Error (' . $mysqli->connect_errno . ') '. $mysqli->connect_error);
                 }
 
-                @$keyword = addslashes($_POST['search-keyword']);
+                @$keyword = trim($_GET['search-keyword']);
                 if (empty($keyword))
                 {
                     echo '<script>alert("请输入内容进行搜索");</script>';
                 }
                 if (!empty($keyword)) {
-                    $sql = "SELECT * FROM videos WHERE title LIKE '%{$keyword}%' ORDER BY video_id LIMIT -15";
+                    $sql = "SELECT * FROM videos WHERE title LIKE '%{$keyword}%' LIMIT 15";
+                    mysqli_query($mysqli,"set names 'utf8'");
                     $res = mysqli_query($mysqli,$sql);
                     if (!mysqli_query($mysqli,"SET @a=':error'")) {
                         printf("错误信息:%s\n",mysqli_error($mysqli));
                     }
                     $row = mysqli_fetch_row($res);
-                    if ($row==0) {
+                    // print_r($row);
+                    if (!$row) {
                         echo "找不到您查询的信息";
                     } else {
                         while ($row) {
@@ -145,23 +147,32 @@
                 <li class="videoout">
                     <div class="video-img">
                     <?php
-                        echo '<img src="./image/searchout/'.$row[1].'.jpg">';
+                        echo '<img src="./image/searchout/'.$row[0].'.jpg">';
                     ?>
                     </div>
                     <div class="info">
                     <?php
                         echo '<a href="##">';
+                        echo $row[4];
+                        
                     ?>
-                    title
                     </a>
                     </div>
                     <div class="tags">
                         <span class="so-icons watch-num"><i class="icon-playtime"></i>1111</span>
                         <span class="so-icons up-time"><i class="icon-uptime"></i>1970-1-1</span>
-                        <span class="so-icons up"><i class="icon-up"></i>我为长者续一秒</span>
+                        <span class="so-icons up"><i class="icon-up"></i><?php 
+                        $sql = 'SELECT contributors.name FROM contributors INNER JOIN videos ON contributors.contributor_id = videos.contributor_id';
+                        mysqli_query($mysqli,"set names 'utf8'");
+                        $res2 = mysqli_query($mysqli, $sql);
+                        $row2 = mysqli_fetch_row($res2);
+                        print_r($row2[0]);
+                        mysqli_free_result($res2);
+                        ?></span>
                     </div>
                 </li>
                    <?php
+                        break;
                     }
                     mysqli_free_result($res);
                     mysqli_close($mysqli);

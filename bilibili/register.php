@@ -3,8 +3,8 @@
 require_once 'connect.php';
 session_start();
 
-$username = addslashes($_POST['username']);
-$password = addslashes($_POST['password']);
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
 
 if ($username && $password) {
     $sql = "SELECT username FROM users WHERE username='$username'";
@@ -15,8 +15,8 @@ if ($username && $password) {
         echo "<a href=register.html>返回</a>";
         exit;
     } else {
-        $username = addslashes($_POST['username']);
-        $password = addslashes($_POST['password']);
+        $username = trim($_POST['username']);
+        $password = trim($_POST['password']);
         $hash=md5($password);
         $ins = "INSERT INTO users(username,password) VALUES ('$username','$hash')";
         $result = mysqli_query($mysqli,$ins);

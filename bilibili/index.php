@@ -14,10 +14,10 @@
     require_once 'class.php';
     session_start();
     if (isset($_POST['login_submit']) && $_POST['login_submit'] == 'submit') {
-        $login->login($_POST['username'], $_POST['password']);
-    } else {
-        header('location:login.html');
-    }
+        $login->login($_POST['username'], $_POST['password']);}
+    // } else {
+    //     header('location:login.html');
+    // }
 
 ?>
     <div class="top">
@@ -838,7 +838,7 @@
                          <span>排行榜</span>
                      </a>
                     
-                    <form autocomplete="off" action="" id="search-form">
+                    <form autocomplete="off" action="searchout.php" id="search-form" method="get">
                             <input type="text" name="search-keyword" id="search-keyword">
                             <button id="search-submit" type="submit"></button>
                     </form>

@@ -3,8 +3,8 @@
     require_once 'connect.php';
     session_start();
 
-    $username = addslashes($_POST['username']);
-    $password = addslashes($_POST['password']);
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
     $hash=md5($password);
     if(empty($username) || empty($password))
     {
