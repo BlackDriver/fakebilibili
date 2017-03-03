@@ -70,6 +70,82 @@
                         </ul>
                     </li>
                 </ul>
+                <ul class="nav-r-wrapper afterlogin" style="display: none;">
+                    <li class="i-user">
+                        <img src="./image/tianyi.jpg" class="i-head"></img>
+                        <div class="i-user-menu">
+                            <div class="menu-info">
+                                <div class="info-uname">
+                                    <b><?php echo $haha['username']; ?></b>
+                                    <!--此处存放用户名-->
+                                    <!-- <b>江泽民</b> -->
+                                </div>
+                                <i class="coin">999</i>
+                                <i class="i-email"></i>
+                                <i class="i-phone"></i>
+                            </div>
+                            <div class="menu-lv">等级：续命师 99998/99999s</div>
+                            <div class="menu-member-wrp">
+                                <ul class="menu-member">
+                                    <li>
+                                        <i></i>
+                                        个人中心
+                                    </li>
+                                    <li>
+                                        <i></i>
+                                        投稿管理
+                                    </li>
+                                    <li>
+                                        <i></i>
+                                        B币钱包
+                                    </li>
+                                    <li>
+                                        <i></i>
+                                        直播中心
+                                    </li>
+                                </ul>
+                            </div>
+                            <form class="member-bottom" action="logout.php">
+                                <button class="logout">退出</button>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="nav-r-log nav-r-m">
+                        <a href="#"><span>消息</span></a>
+                    </li>
+                    <li class="nav-r-log nav-r-m">
+                        <a href="##"><span>动态</span></a>
+                    </li>
+                    <li style="width: 60px;" class="nav-r-log nav-r-m">
+                        <a href="##"><span>收藏夹</span></a>
+                    </li>
+                    <li class="nav-r-log nav-r-m">
+                        <a href="##"><span>历史</span></a>
+                    </li>
+                    <li class="tougao ">
+                        <a href="#"><span style="color: white;">投稿</span></a>
+                        <ul class="tougao-menu">
+                            <li>
+                                <a  href="##">
+                                    <i class="tougao-v"></i>
+                                    <em>投稿视频</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="##">
+                                    <i class="tougao-m"></i>
+                                    <em>投稿管理</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="##">
+                                    <i class="tougao-center"></i>
+                                    <em>个人中心</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -132,7 +208,7 @@
                     echo '<script>alert("请输入内容进行搜索");</script>';
                 }
                 if (!empty($keyword)) {
-                    $sql = "SELECT * FROM videos WHERE title LIKE '%{$keyword}%' LIMIT 2";
+                    $sql = "SELECT * FROM videos WHERE title LIKE '%{$keyword}%' LIMIT 15";
                     mysqli_set_charset($mysqli,"utf8");
                     $res = mysqli_query($mysqli,$sql);
                     if (!mysqli_query($mysqli,"SET @a=':error'")) {
@@ -143,7 +219,7 @@
                     if (!$row) {
                         echo "找不到您查询的信息";
                     } else {
-                    while ($row) {
+                    while ($row = mysqli_fetch_array($res)) {
                     ?>
                 <li class="videoout">
                     <div class="video-img">
@@ -168,7 +244,7 @@
                     </div>
                 </li>
                    <?php
-                        break;
+                        
                     }
                     mysqli_free_result($res);
                     mysqli_close($mysqli);
@@ -246,3 +322,5 @@
     
 </body>
 </html>
+
+<script type="text/javascript" src="js/loginlogout.js"></script>

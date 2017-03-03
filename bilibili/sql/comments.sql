@@ -1,4 +1,4 @@
-/*
+﻿/*
 Navicat MySQL Data Transfer
 
 Source Server         : localhost_3306
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2017-02-27 21:37:08
+Date: 2017-03-04 06:19:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,12 +21,12 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `comment_id` int(20) NOT NULL AUTO_INCREMENT,
+  `video_id` int(20) NOT NULL,
+  `post_id` int(20) DEFAULT NULL,
   `name` varchar(60) NOT NULL,
-  `content` mediumtext NOT NULL,
-  `date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `content` text NOT NULL,
+  `date` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`comment_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=204 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of comments
--- ----------------------------
+

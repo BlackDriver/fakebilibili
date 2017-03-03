@@ -6,13 +6,23 @@ session_start();
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 
+if(!isset($_POST['submit'])){
+    exit('非法访问!');
+}
+if(!preg_match('/^[\w\x80-\xff]{3,15}$/', $username)){
+    exit('错误：用户名不符合规定。<a href="javascript:history.back(-1);">返回</a>');
+}
+if(strlen($password) < 6){
+    exit('错误：密码长度不符合规定。<a href="javascript:history.back(-1);">返回</a>');
+}
+
 if ($username && $password) {
     $sql = "SELECT username FROM users WHERE username='$username'";
     $res = mysqli_query($mysqli,$sql);
     $rows= mysqli_num_rows($res);
     if($rows) {
         echo "已有人注册此名，请重新选择名字!";
-        echo "<a href=register.html>返回</a>";
+        echo '<a href="javascript:history.back(-1);">返回</a>';
         exit;
     } else {
         $username = trim($_POST['username']);
