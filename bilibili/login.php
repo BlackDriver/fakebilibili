@@ -15,6 +15,7 @@
             $rows= mysqli_num_rows($res);
             if($rows) {
                 $_SESSION['username']=$username;
+                $_SESSION['password'] = $password;
                 echo "登录成功,3秒后返回首页</br>";
                 echo "<a href='index.php'>如果浏览器没有反应请点击此链接</a>";
                 header("refresh:3;url=index.php");

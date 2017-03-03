@@ -9,15 +9,11 @@
 
 </head>
 <body>
+
 <?php
+
     require_once 'connect.php';
-    require_once 'class.php';
-    session_start();
-    if (isset($_POST['login_submit']) && $_POST['login_submit'] == 'submit') {
-        $login->login($_POST['username'], $_POST['password']);}
-    // } else {
-    //     header('location:login.html');
-    // }
+    require_once 'session.php';
 
 ?>
     <div class="top">
@@ -818,7 +814,6 @@
                                         </b>
                                     </a>
                                 </li>
-                                
                         </ul>
                     </li>
 
@@ -837,7 +832,6 @@
                      <a class="l-rank">
                          <span>排行榜</span>
                      </a>
-                    
                     <form autocomplete="off" action="searchout.php" id="search-form" method="get">
                             <input type="text" name="search-keyword" id="search-keyword">
                             <button id="search-submit" type="submit"></button>
@@ -3107,9 +3101,6 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
-        
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -3127,79 +3118,98 @@
                         <i></i>
                     </div>
                     <div class="row-head-r newmove"><span></span>当前共有<b>9999</b>条新动态</div>
-                    
                 </div>
                 <div class="row-body">
                     <ul class="tuiguang-list">
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=1">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>【Giligili配音社】小拳拳胸口碎大石-宣传视频第一弹！！</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=2">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>【最难念】我的电音名字</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=3">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>papi酱</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=4">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>不如修仙（熬夜的注视）</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=5">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>【耳机福利】【Electro House】Virtual Riot - In My Head(VIP Mix)</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=2">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>【最难念】我的电音名字</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=2">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>【最难念】我的电音名字</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=2">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>【最难念】我的电音名字</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=2">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>【最难念】我的电音名字</span>
+                                </div>
+                            </a>
                         </li>
                         <li>
-                            <div class="tuiguang-list-in">
-                                <div class="tuiguang-pic"></div>
-                                <div class="tuiguang-pic-mask"></div>
-                                <span>【2017年欧美电影混剪】（上半年的哦）0.0</span>
-                            </div>
+                            <a href="videoplay.php?video_id=2">
+                                <div class="tuiguang-list-in">
+                                    <div class="tuiguang-pic guichu-pic"></div>
+                                    <div class="tuiguang-pic-mask"></div>
+                                    <span>【最难念】我的电音名字</span>
+                                </div>
+                            </a>
                         </li>
                     </ul>
                 </div>

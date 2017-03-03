@@ -2,7 +2,6 @@ var beforelogin = document.querySelector('.beforelogin');
 var afterlogin = document.querySelector('.afterlogin');
 var exit = document.querySelector('.logout');
 
-
 logined();
 
 function logined() {
@@ -13,9 +12,8 @@ function logined() {
 exit.onclick = function() {
     afterlogin.style = 'display:none';
     beforelogin.style = 'display:block';
-    logout();
+    session_destory();
 }
-
 
 //翻车的
 //writecookie();

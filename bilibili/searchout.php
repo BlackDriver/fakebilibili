@@ -9,6 +9,7 @@
     
 </head>
 <body>
+<?php require_once 'session.php'; ?>
     <div class="top">
         <div class="blur-container">
             <div class="top-bg tops"></div>
@@ -131,30 +132,30 @@
                     echo '<script>alert("请输入内容进行搜索");</script>';
                 }
                 if (!empty($keyword)) {
-                    $sql = "SELECT * FROM videos WHERE title LIKE '%{$keyword}%' LIMIT 15";
-                    mysqli_query($mysqli,"set names 'utf8'");
+                    $sql = "SELECT * FROM videos WHERE title LIKE '%{$keyword}%' LIMIT 2";
+                    mysqli_set_charset($mysqli,"utf8");
                     $res = mysqli_query($mysqli,$sql);
                     if (!mysqli_query($mysqli,"SET @a=':error'")) {
                         printf("错误信息:%s\n",mysqli_error($mysqli));
                     }
-                    $row = mysqli_fetch_row($res);
+                    $row = mysqli_fetch_array($res);
                     // print_r($row);
                     if (!$row) {
                         echo "找不到您查询的信息";
                     } else {
-                        while ($row) {
+                    while ($row) {
                     ?>
                 <li class="videoout">
                     <div class="video-img">
                     <?php
-                        echo '<img src="./image/searchout/'.$row[0].'.jpg">';
+                        echo '<img src="./image/searchout/'.$row['video_id'].'.jpg">';
                     ?>
                     </div>
                     <div class="info">
                     <?php
-                        echo '<a href="##">';
-                        echo $row[4];
-                        
+                        echo '<a href="videoplay.php?video_id=';
+                        echo $row['video_id'].'">';
+                        echo $row['title'];
                     ?>
                     </a>
                     </div>
@@ -162,12 +163,7 @@
                         <span class="so-icons watch-num"><i class="icon-playtime"></i>1111</span>
                         <span class="so-icons up-time"><i class="icon-uptime"></i>1970-1-1</span>
                         <span class="so-icons up"><i class="icon-up"></i><?php 
-                        $sql = 'SELECT contributors.name FROM contributors INNER JOIN videos ON contributors.contributor_id = videos.contributor_id';
-                        mysqli_query($mysqli,"set names 'utf8'");
-                        $res2 = mysqli_query($mysqli, $sql);
-                        $row2 = mysqli_fetch_row($res2);
-                        print_r($row2[0]);
-                        mysqli_free_result($res2);
+                        echo $row['contributor'];
                         ?></span>
                     </div>
                 </li>

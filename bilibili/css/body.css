@@ -732,3 +732,13 @@
     margin-top: 10px;
     margin-left: 16px;
 }
+.tuiguang-list li a{
+    color: #222;
+}
+.c-item-r a{
+    color: #222;
+}
+.guichu-pic{
+    background-image: url(../image/searchout/2.jpg);
+    background-size: 100%;
+}
